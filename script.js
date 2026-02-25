@@ -1,5 +1,16 @@
 function insertToDisplay(data) {
-  document.querySelector('#display').value += data
+  let char 
+
+  switch (data) {
+    case Number.isNaN(data):
+      window.alert('Por favor, insira um caracter válido.')
+      break;
+
+    default: 
+      char = data
+  }  
+
+  document.querySelector('#display').value += char
 }
 
 function clean(){
@@ -13,6 +24,7 @@ function back(){
 
 function result(){
   const display = document.querySelector('#display')
+  display.value = display.value.replaceAll('x', '*')
   try {
       display.value = eval(display.value)
   } catch {
